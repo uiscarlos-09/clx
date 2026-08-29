@@ -358,6 +358,13 @@ d="M9.6 15.8 16 12 9.6 8.2z"/>
 
 </a>
 
+<a class="home" href="otros-mods.html">
+
+<span class="icon">◈</span>
+𝘖𝘵𝘳𝘰𝘴 𝘔𝘰𝘥𝘴
+
+</a>
+
 
 <div class="buscador" id="buscador">
 
@@ -1113,34 +1120,4 @@ function filtrarMods() {
 
         const nombre = tarjeta
             .querySelector(".nombre-mod")
-            .textContent
-            .toLowerCase();
-
-        if (nombre.includes(texto)) {
-
-            tarjeta.style.display = "";
-            encontrados++;
-
-        } else {
-
-            tarjeta.style.display = "none";
-
-        }
-
-    });
-
-    if (texto !== "" && encontrados === 0) {
-
-        sinResultados.style.display = "block";
-
-    } else {
-
-        sinResultados.style.display = "none";
-
-    }
-}
-
-</script>
-
-</body>
-    </html>
+          
