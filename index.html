@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><link rel="icon" type="image/png" href="Veleryn.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>𝙲𝙰𝚁𝙻𝙾𝚂 - Everlasting</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #17265c 0%, #0b0716 42%, #05040b 100%);
+    color: white;
+    min-height: 100vh;
+}
+
+/* PARTE SUPERIOR */
+
+.top {
+    background: rgba(5, 6, 18, 0.95);
+    border-bottom: 1px solid #3156b8;
+    padding: 18px 15px;
+    text-align: center;
+}
+
+.nombre {
+    margin: 0 0 15px;
+    font-size: 34px;
+    background: linear-gradient(90deg, #67a8ff, #b17cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* BOTONES YOUTUBE */
+
+.sociales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #536fca;
+    background: linear-gradient(135deg, #253f99, #5931a5);
+    transition: .25s;
+}
+
+.social:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(91,115,235,.45);
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    fill: currentColor;
+}
+
+.youtube-icon {
+    color: #ff0000;
+}
+
+.youtube-play {
+    fill: white;
+}
+
+/* NAVEGACIÓN */
+
+.navbar {
+    background: rgba(7,8,22,.92);
+    border-bottom: 1px solid #283f7d;
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.nav-contenido {
+    max-width: 950px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.home {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #dce7ff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: .25s;
+}
+
+.home:hover {
+    background: linear-gradient(135deg,#315ee8,#7b3fe4);
+    color: white;
+}
+
+/* BUSCADOR */
+
+.buscador {
+    display: flex;
+    align-items: center;
+    background: rgba(20,22,48,.9);
+    border: 1px solid #536fca;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.buscador input {
+    width: 0;
+    opacity: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    padding: 10px 0;
+    transition: .3s;
+    font-size: 15px;
+}
+
+.buscador input::placeholder {
+    color: #8999c2;
+}
+
+.buscador.activo input {
+    width: 190px;
+    opacity: 1;
+    padding: 10px 12px;
+}
+
+.buscar-btn {
+    border: none;
+    background: transparent;
+    color: #dce7ff;
+    font-size: 21px;
+    padding: 8px 13px;
+    cursor: pointer;
+}
+
+/* CONTENIDO */
+
+.contenedor {
+    max-width: 950px;
+    margin: auto;
+    padding: 35px 18px 60px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg,#67a8ff,#b17cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* TARJETAS */
+
+.tarjeta {
+    background: rgba(13,13,29,.88);
+    border: 1px solid #3156a8;
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+
+.nombre-mod {
+    color: #9ebfff;
+    font-size: 24px;
+    margin: 5px 0 18px;
+}
+
+.miniatura {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #05050a;
+    border: 1px solid #4c63bd;
+}
+
+.miniatura img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s;
+}
+
+.miniatura:hover img {
+    transform: scale(1.03);
+}
+
+/* BOTONES DE LOS MODS */
+
+.botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 28px;
+    background: linear-gradient(135deg,#3169e8,#7541dc);
+    color: white;
+    text-decoration: none;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #668cff;
+    transition: .25s;
+}
+
+.boton:hover {
+    background: linear-gradient(135deg,#4380ff,#9158ee);
+    transform: translateY(-2px);
+}
+
+.boton-download {
+    background: linear-gradient(135deg,#543bc4,#873ed8);
+    border-color: #9b73ff;
+}
+
+.icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* SIN RESULTADOS */
+
+.sin-resultados {
+    display: none;
+    color: #9ebfff;
+    font-size: 20px;
+    padding: 30px;
+}
+
+/* FOOTER */
+
+footer {
+    background: rgba(5,5,13,.9);
+    border-top: 1px solid #283f7d;
+    padding: 22px;
+    text-align: center;
+    color: #8999c2;
+}
+
+/* MÓVIL */
+
+@media (max-width:600px) {
+
+    .nombre {
+        font-size: 28px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .tarjeta {
+        padding: 12px;
+    }
+
+    .nombre-mod {
+        font-size: 21px;
+    }
+
+    .boton {
+        padding: 12px 22px;
+    }
+
+    .buscador.activo input {
+        width: 140px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- CARLOS -->
+
+<header class="top">
+
+<h2 class="nombre">𝙲𝙰𝚁𝙻𝙾𝚂</h2>
+
+<div class="sociales">
+
+<a class="social"
+href="https://www.youtube.com/@CarlosUIS-09"
+target="_blank"
+rel="noopener noreferrer">
+
+<svg class="social-icon youtube-icon"
+viewBox="0 0 24 24"
+aria-hidden="true">
+
+<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8z"/>
+
+<path class="youtube-play"
+d="M9.6 15.8 16 12 9.6 8.2z"/>
+
+</svg>
+
+𝘠𝘰𝘶𝘛𝘶𝘣𝘦
+    
+</a>
+
+</div>
+
+</header>
+    
+<!-- NAVEGACIÓN -->
+
+<nav class="navbar">
+
+<div class="nav-contenido">
+
+<a class="home" href="#inicio">
+
+<span class="icon">⌂</span>
+𝘏𝘰𝘮𝘦
+
+</a>
+
+
+<div class="buscador" id="buscador">
+
+<input
+type="text"
+id="buscar"
+placeholder="Buscar mod..."
+autocomplete="off">
+
+<button
+class="buscar-btn"
+onclick="activarBusqueda()"
+aria-label="Buscar">
+
+⌕
+
+</button>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<main class="contenedor" id="inicio">
+
+<h1>𝘌𝘷𝘦𝘳𝘭𝘢𝘴𝘵𝘪𝘯𝘨</h1>
+
+<!-- 1. Goku SSJ2 -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝙂𝙤𝙠𝙪 𝙎𝙪𝙥𝙚𝙧 𝙎𝙖𝙞𝙮𝙖𝙟𝙞𝙣 2 𝙉𝙚𝙬 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 + 𝙄𝙣𝙩𝙧𝙤 𝙒𝙞𝙣
+</h2>
+
+<a class="miniatura"
+href="https://youtu.be/GLwSgCrASCg?si=ezzY7eUQOJV4FxeT"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/GLwSgCrASCg/hqdefault.jpg"
+alt="Goku Super Saiyajin 2 New Skill Attack + Intro Win">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://youtu.be/GLwSgCrASCg?si=ezzY7eUQOJV4FxeT"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/pvm4wsdzfcll2z2/Goku_Super_Saiyajin_2_Skill_Attack.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+  
+<!-- 2.Goku SSBK -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝙂𝙤𝙠𝙪 𝙎𝙪𝙥𝙚𝙧 𝙎𝙖𝙞𝙮𝙖𝙟𝙞𝙣 𝘽𝙡𝙪𝙚 𝙆𝙖𝙞𝙤𝙠𝙚𝙣 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 𝙇𝙚𝙜𝙚𝙣𝙙𝙨
+</h2>
+
+<a class="miniatura"
+href="https://youtu.be/3tE-g-IJDTY?si=QW_U8wtmuh5edTXc"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/3tE-g-IJDTY/hqdefault.jpg"
+alt="Goku Super Saiyajin Blue Kaioken Skill Attack Legends">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://youtu.be/3tE-g-IJDTY?si=QW_U8wtmuh5edTXc"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/cmuxqhdv30dscpc/Goku+Super+Saiyajin+Blue+Kaioken+Skill+Attack+Legends.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+      
+<!-- 3. Goku -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝙂𝙤𝙠𝙪 𝘼𝙡𝙡 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠
+</h2>
+
+<a class="miniatura"
+href="https://youtu.be/s4xKvk7JoZQ?si=hLg8OlmOsRQDxHTs"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/s4xKvk7JoZQ/hqdefault.jpg"
+alt="Goku All Attack">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://youtu.be/s4xKvk7JoZQ?si=hLg8OlmOsRQDxHTs"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/mxkvr6i2eif2rkr/Goku+Skill+Attack+Genkidama+++Super+Saiyan+2+SZ.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+
+    
+ <!-- 4. Goku DM SSJ4 -->
+    
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝙂𝙤𝙠𝙪 𝘿𝙖𝙞𝙢𝙖 𝙎𝙪𝙥𝙚𝙧 𝙎𝙖𝙞𝙮𝙖𝙣 4 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 𝙇𝙚𝙜𝙚𝙣𝙙𝙨
+</h2>
+
+<a class="miniatura"
+href="https://youtu.be/kk1-ANZ7iQg?si=r9q3HvQ6XIg4XKdP"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/kk1-ANZ7iQg/hqdefault.jpg"
+alt="Goku Daima Super Saiyajin 4 Skill Attack Legends">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://youtu.be/kk1-ANZ7iQg?si=r9q3HvQ6XIg4XKdP"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/ug6shjdpu5kmf8s/Goku+Daima+Super+Saiyan+4+Skill+Attack+Legends.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+
+    
+    
+<!-- 5. Goku SSJ3 -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝙂𝙤𝙠𝙪 𝙎𝙪𝙥𝙚𝙧 𝙎𝙖𝙞𝙮𝙖𝙣 3 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 + 𝙄𝙣𝙩𝙧𝙤 𝙒𝙞𝙣
+</h2>
+
+<a class="miniatura"
+href=""https://"https://youtu.be/Xw77QfQd9UY?si=p4sRM7upZQzd4-Qn"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/Xw77QfQd9UY/hqdefault.jpg"
+alt="Goku Super Saiyan 3 Skill Attack + Intro Win">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://youtu.be/Xw77QfQd9UY?si=C6QiV-OcMWlaEtd_"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/h9r0zlt5fvevcuv/Goku+Super+Saiyan+3+Skill+Attack+++Intro+Win.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+ 
+    
+<!-- 6. Goku SSJ2 -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝙂𝙤𝙠𝙪 𝙎𝙪𝙥𝙚𝙧 𝙎𝙖𝙞𝙮𝙖𝙣 2 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 𝙎𝙥𝙖𝙧𝙠𝙞𝙣𝙜 𝙕𝙚𝙧𝙤
+</h2>
+
+<a class="miniatura"
+href="https://youtu.be/IpdD_YPF5PQ?si=tiRnsEkbNjYuoSfU"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/IpdD_YPF5PQ/hqdefault.jpg"
+alt="Goku Super Saiyan 2 Skill Attack Sparking Zero">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://youtu.be/IpdD_YPF5PQ?si=tiRnsEkbNjYuoSfU"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/vw8rzpyb83irzrj/Goku+Super+Saiyajin+Saiyan+Skill+Attack+Sparking+Zero.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+ 
+<!-- 7. Android #18 -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝘼𝙣𝙙𝙧𝙤𝙞𝙙 #18 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 𝙇𝙚𝙜𝙚𝙣𝙙𝙨
+</h2>
+
+<a class="miniatura"
+href="https://youtu.be/9yGp8YsXbTw?si=TRd_fbS4vbxtkIdf"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/9yGp8YsXbTw/hqdefault.jpg"
+alt="Android #18 Skill Attack Legends">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://youtu.be/9yGp8YsXbTw?si=TRd_fbS4vbxtkIdf"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/jndfzigmtginlx1/Android+#18+Skill+Attack+Legends.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+    
+
+<!-- 8. GOKU GT -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝙂𝙤𝙠𝙪 𝙂𝙏 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 𝙎𝙥𝙖𝙧𝙠𝙞𝙣𝙜 𝙕𝙚𝙧𝙤
+</h2>
+
+<a class="miniatura"
+href="https://www.youtube.com/watch?v=v6GhTuhPly4"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/v6GhTuhPly4/hqdefault.jpg"
+alt="Goku GT Skill Attack Sparking Zero">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://www.youtube.com/watch?v=v6GhTuhPly4"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/lqg067oymeljhka/Goku_GT_Adult_Skill_Attack_Sparking_Zero.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+
+
+<!-- 9. CAULIFLA -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝘾𝙖𝙪𝙡𝙞𝙛𝙡𝙖 𝙎𝙎𝙅 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠
+</h2>
+
+<a class="miniatura"
+href="https://www.youtube.com/watch?v=9x5-wfqMuXU"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/9x5-wfqMuXU/hqdefault.jpg"
+alt="Caulifla SSJ Skill Attack">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://www.youtube.com/watch?v=9x5-wfqMuXU"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/izzxxvngq1e72h7/Caulifla_Super_Saiyan_2_Skill_Attack.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+
+
+<!-- 10. NEW SKILL ATTACK -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝙉𝙚𝙬 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 𝘿𝘽𝙕 𝙏𝙏𝙏
+</h2>
+
+<a class="miniatura"
+href="https://www.youtube.com/watch?v=Ky0CHHUGDuw"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/Ky0CHHUGDuw/hqdefault.jpg"
+alt="New Skill Attack DBZ TTT">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://www.youtube.com/watch?v=Ky0CHHUGDuw"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/77b4dsad6h6qnjq/Three_New_Skill_Attack.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/44whkbmsil606q3/Skill_Attack_SSB_SSG.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘗𝘢𝘳𝘵 𝘛𝘸𝘰
+
+</a>
+
+</div>
+</section>
+
+
+<!-- 11. GOKU FNF -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝙂𝙤𝙠𝙪 𝙁𝙉𝙁 𝙎𝙎𝘽 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 𝙇𝙚𝙜𝙚𝙣𝙙𝙨
+</h2>
+
+<a class="miniatura"
+href="https://www.youtube.com/watch?v=KacHG6x960c"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/KacHG6x960c/hqdefault.jpg"
+alt="Goku FNF SSB Skill Attack Legends">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://www.youtube.com/watch?v=KacHG6x960c"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/am3zpd3k2g938j3/Goku_FNF_Super_Saiyajin_Blue_Custom_Attack_Legends.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+
+
+<!-- 12. GOKU DBS -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝙂𝙤𝙠𝙪 𝘿𝘽𝙎 𝙎𝙎𝘽 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 𝙇𝙚𝙜𝙚𝙣𝙙𝙨
+</h2>
+
+<a class="miniatura"
+href="https://www.youtube.com/watch?v=DBei8-N7qBU"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/DBei8-N7qBU/hqdefault.jpg"
+alt="Goku DBS SSB Skill Attack Legends">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://www.youtube.com/watch?v=DBei8-N7qBU"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/27e4aklbhghkwek/Goku_DBS_Super_Saiyajin_Blue_Custom_Attack.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+
+
+<!-- 13. GOKU CC -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝙂𝙤𝙠𝙪 𝘾𝘾 𝙎𝙎𝘽 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 𝙇𝙚𝙜𝙚𝙣𝙙𝙨
+</h2>
+
+<a class="miniatura"
+href="https://www.youtube.com/watch?v=B_WjI7rVZVU"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/B_WjI7rVZVU/hqdefault.jpg"
+alt="Goku CC SSB Skill Attack Legends">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://www.youtube.com/watch?v=B_WjI7rVZVU"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/hdbv6aouoy7pttu/Goku_CC_Super_Saiyajin_Blue_Custom_Attack.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+
+
+<!-- 14. GOGETA -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝙂𝙤𝙜𝙚𝙩𝙖 𝙎𝙎𝘽 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 𝙋𝙤𝙧𝙩 𝘽𝙏4
+</h2>
+
+<a class="miniatura"
+href="https://www.youtube.com/watch?v=wctLFgXll_U"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/wctLFgXll_U/hqdefault.jpg"
+alt="Gogeta SSB Skill Attack Port BT4">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://www.youtube.com/watch?v=wctLFgXll_U"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/m2vj0ji1e5lx96p/Gogeta_Super_Saiyajin_Blue_BT4_Beta_14_REV_1.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+
+
+<!-- 15. ALL -->
+
+<section class="tarjeta">
+
+<h2 class="nombre-mod">
+𝘼𝙡𝙡 𝙎𝙠𝙞𝙡𝙡 𝘼𝙩𝙩𝙖𝙘𝙠 𝙋𝙤𝙧𝙩 𝘽𝙏4
+</h2>
+
+<a class="miniatura"
+href="https://www.youtube.com/watch?v=i4gG77tJeJg"
+target="_blank"
+rel="noopener noreferrer">
+
+<img
+src="https://img.youtube.com/vi/i4gG77tJeJg/hqdefault.jpg"
+alt="All Skill Attack Port BT4">
+
+</a>
+
+<div class="botones">
+
+<a class="boton"
+href="https://www.youtube.com/watch?v=i4gG77tJeJg"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">▶</span>
+𝘝𝘪𝘥𝘦𝘰
+
+</a>
+
+<a class="boton boton-download"
+href="https://www.mediafire.com/file/robnz69zl8d6srm/%25F0%259D%2598%2588%25F0%259D%2598%25AF%25F0%259D%2598%25A2%25F0%259D%2598%25B3%25F0%259D%2598%25AA%25F0%259D%2598%25A6%25F0%259D%2598%25B9%25F0%259D%2598%25A6.7z/file"
+target="_blank"
+rel="noopener noreferrer">
+
+<span class="icon">⬇</span>
+𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥
+
+</a>
+
+</div>
+</section>
+
+
+<div class="sin-resultados" id="sinResultados">
+No se encontró ningún mod.
+</div>
+
+</main>
+
+
+<footer>
+© 2026 𝙲𝙰𝚁𝙻𝙾𝚂 — 𝙳𝙱𝚉 𝚃𝚃𝚃 𝙼𝙾𝙳𝚂
+</footer>
+
+
+<script>
+
+const buscador = document.getElementById("buscador");
+const campo = document.getElementById("buscar");
+const tarjetas = document.querySelectorAll(".tarjeta");
+const sinResultados = document.getElementById("sinResultados");
+
+function activarBusqueda() {
+
+    buscador.classList.toggle("activo");
+
+    if (buscador.classList.contains("activo")) {
+        campo.focus();
+    } else {
+        campo.value = "";
+        filtrarMods();
+    }
+}
+
+campo.addEventListener("input", filtrarMods);
+
+function filtrarMods() {
+
+    const texto = campo.value.toLowerCase().trim();
+
+    let encontrados = 0;
+
+    tarjetas.forEach(function(tarjeta) {
+
+        const nombre = tarjeta
+            .querySelector(".nombre-mod")
+            .textContent
+            .toLowerCase();
+
+        if (nombre.includes(texto)) {
+
+            tarjeta.style.display = "";
+            encontrados++;
+
+        } else {
+
+            tarjeta.style.display = "none";
+
+        }
+
+    });
+
+    if (texto !== "" && encontrados === 0) {
+
+        sinResultados.style.display = "block";
+
+    } else {
+
+        sinResultados.style.display = "none";
+
+    }
+}
+
+</script>
+
+</body>
+    </html>
