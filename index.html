@@ -122,42 +122,55 @@ body {
 .buscador {
     display: flex;
     align-items: center;
-    background: rgba(20,22,48,.9);
+    justify-content: flex-end;
+    background: rgba(20,22,48,.95);
     border: 1px solid #536fca;
     border-radius: 9px;
     overflow: hidden;
+    width: 48px;
+    min-width: 48px;
+    transition: width .3s ease;
+}
+
+.buscador.activo {
+    width: 220px;
 }
 
 .buscador input {
     width: 0;
+    min-width: 0;
     opacity: 0;
     border: none;
     outline: none;
     background: transparent;
     color: white;
     padding: 10px 0;
-    transition: .3s;
     font-size: 15px;
+    transition: .3s ease;
+}
+
+.buscador.activo input {
+    width: 172px;
+    opacity: 1;
+    padding: 10px 12px;
 }
 
 .buscador input::placeholder {
     color: #8999c2;
 }
 
-.buscador.activo input {
-    width: 190px;
-    opacity: 1;
-    padding: 10px 12px;
-}
-
 .buscar-btn {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 46px;
     border: none;
     background: transparent;
     color: #dce7ff;
-    font-size: 21px;
-    padding: 8px 13px;
+    font-size: 25px;
     cursor: pointer;
-}
+    padding: 0;
+    touch-action: manipulation;
+    }
 
 /* CONTENIDO */
 
@@ -1087,9 +1100,14 @@ function activarBusqueda() {
     buscador.classList.toggle("activo");
 
     if (buscador.classList.contains("activo")) {
-
-        campo.focus();
-
+        setTimeout(function() {
+            campo.focus();
+        }, 100);
+    } else {
+        campo.value = "";
+        filtrarMods();
+    }
+    }
     } else {
 
         campo.value = "";
